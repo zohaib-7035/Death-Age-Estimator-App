@@ -1,107 +1,166 @@
-Life Expectancy Prediction App
-Overview
-This Streamlit application predicts life expectancy based on 19 health and economic indicators using a pre-trained machine learning model loaded from a .sav file (a1.sav). The app features an interactive interface for inputting data, a health tips section based on WHO guidelines, and a simple analysis of the prediction results.
-Features
-
-User Input: Collects 19 health and economic indicators, including a "Year" field (2000–2025).
-Health Tips: Displays WHO-based health recommendations in an expandable section.
-Model: Uses a pre-trained machine learning model (loaded via joblib) to predict life expectancy.
-Prediction Analysis: Provides contextual feedback based on the predicted life expectancy (low, moderate, or high).
-Output: Displays the predicted life expectancy in years upon clicking the "Predict Life Expectancy" button.
-
-Requirements
-
-Python 3.7+
-Streamlit (pip install streamlit)
-Joblib (pip install joblib)
-NumPy (pip install numpy)
-A pre-trained model file named a1.sav (must be uploaded to the environment, e.g., Kaggle or Streamlit Cloud)
-
-Installation
-
-Clone or download the repository to your local machine or environment.
-Install the required dependencies:pip install streamlit joblib numpy
 
 
-Ensure the pre-trained model file (a1.sav) is available in the same directory as the script or specify the correct path to the file.
+# 📊 Life Expectancy Prediction App
 
-Usage
+## 📝 Overview
 
-Run the Streamlit app:streamlit run app.py
+This is a **Streamlit web application** that predicts life expectancy based on **19 health and economic indicators** using a **pre-trained machine learning model** (`a1.sav`). The app provides:
 
+* An interactive form to input indicators
+* Health tips based on WHO guidelines
+* Analysis of predicted results
 
-Open the provided local URL (e.g., http://localhost:8501) in a web browser.
-Expand the "Health Tips Based on WHO Guidelines" section for health recommendations.
-Enter values for the 19 input features:
-Year: Year of data (2000–2025, default: 2023).
-Adult Mortality: Probability of dying between 15 and 60 years per 1,000 population.
-Infant Deaths: Number of infant deaths per 1,000 live births.
-Alcohol Consumption: Per capita alcohol consumption (liters of pure alcohol).
-Percentage Expenditure: Health expenditure as a percentage of GDP.
-Hepatitis B (%): Hepatitis B immunization coverage among 1-year-olds (%).
-Measles: Number of measles cases per 1,000 population.
-BMI: Average Body Mass Index of the population.
-Under-five Deaths: Number of deaths of children under 5 years per 1,000 live births.
-Polio (%): Polio immunization coverage among 1-year-olds (%).
-Total Expenditure: General government expenditure on health as a percentage of total government expenditure.
-Diphtheria (%): Diphtheria immunization coverage among 1-year-olds (%).
-HIV/AIDS: Deaths due to HIV/AIDS per 1,000 live births.
-GDP: Gross Domestic Product per capita (in USD).
-Population: Total population of the country.
-Thinness 10–19 years: Prevalence of thinness among children and adolescents aged 10–19 (%).
-Thinness 5–9 years: Prevalence of thinness among children aged 5–9 (%).
-Income Composition of Resources: Human Development Index component for income (0 to 1).
-Schooling (years): Average years of schooling.
+---
 
+## 🚀 Features
 
-Click the "Predict Life Expectancy" button to view the predicted life expectancy and analysis.
+* **User Input**: Collects 19 health and economic indicators, including **Year (2000–2025)**
+* **Health Tips**: Expandable section with WHO-based health tips
+* **Model**: Uses a **pre-trained `.sav` model** via `joblib`
+* **Prediction Analysis**: Feedback based on predicted life expectancy:
 
-File Structure
+  * Low: < 60 years
+  * Moderate: 60–75 years
+  * High: > 75 years
+* **Output**: Predicted life expectancy displayed in years
 
-app.py: The main Streamlit application script.
-a1.sav: The pre-trained machine learning model file (must be provided by the user).
-README.md: This documentation file.
+---
 
-Deployment
-To deploy the app on Streamlit Cloud or another platform:
+## 📦 Requirements
 
-Upload the script (app.py) and the model file (a1.sav) to the platform.
-Ensure the requirements.txt file includes:streamlit
-joblib
-numpy
+* **Python 3.7+**
+* `streamlit` → `pip install streamlit`
+* `joblib` → `pip install joblib`
+* `numpy` → `pip install numpy`
+* A pre-trained model file named **`a1.sav`** (must be in the same directory)
 
+---
 
-Deploy the app following the platform's instructions (e.g., link a GitHub repository for Streamlit Cloud).
+## ⚙️ Installation
 
-Notes
+1. **Clone/download** this repository to your local machine.
 
-The model (a1.sav) must be trained on a dataset with 19 features, including the "Year" feature, to ensure compatibility.
-Input values should be realistic and within the specified ranges (e.g., percentages between 0 and 100, non-negative numbers for most fields, year between 2000 and 2025).
-The analysis section provides general feedback based on the prediction: 
-< 60 years: Low, suggests improving healthcare, nutrition, and education.
-60–75 years: Moderate, indicates some risk factors.
+2. **Install required packages**:
 
-75 years: High, suggests a healthy environment.
+   ```bash
+   pip install streamlit joblib numpy
+   ```
 
+3. Ensure `a1.sav` (the trained model) is in the **same directory** as `app.py`.
 
+---
 
+## ▶️ Usage
 
+1. Run the Streamlit app:
 
-Limitations
+   ```bash
+   streamlit run app.py
+   ```
 
-Prediction accuracy depends on the quality and relevance of the pre-trained model (a1.sav).
-The app includes basic input validation (e.g., ranges for percentages and year) but does not validate for realistic combinations of inputs.
-The model file must be available in the environment for the app to function.
-The health tips are general and based on WHO guidelines; they are not tailored to specific inputs.
+2. Open the URL (e.g., `http://localhost:8501`) in your browser.
 
-Contributing
-Contributions are welcome! Fork the repository, make improvements, and submit pull requests. Potential enhancements include:
+3. Expand the **"Health Tips Based on WHO Guidelines"** section.
 
-Advanced input validation for realistic data combinations.
-Additional UI features, such as visualizations of input trends.
-Support for multiple model versions or dynamic feature selection.
+4. **Enter values** for the following 19 features:
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details (if applicable).
-Contact
-For questions or support, contact the developer or refer to the Streamlit community forums for deployment-related issues.
+| Feature                             | Description                                  |
+| ----------------------------------- | -------------------------------------------- |
+| **Year**                            | Between 2000–2025                            |
+| **Adult Mortality**                 | Probability of dying (age 15–60) per 1000    |
+| **Infant Deaths**                   | Infant deaths per 1000 live births           |
+| **Alcohol Consumption**             | Liters per capita                            |
+| **Percentage Expenditure**          | Health expenditure as % of GDP               |
+| **Hepatitis B (%)**                 | Immunization coverage (%)                    |
+| **Measles**                         | Measles cases per 1000                       |
+| **BMI**                             | Body Mass Index                              |
+| **Under-five Deaths**               | Deaths per 1000 children under 5             |
+| **Polio (%)**                       | Immunization coverage (%)                    |
+| **Total Expenditure**               | Health expenditure as % of government budget |
+| **Diphtheria (%)**                  | Immunization coverage (%)                    |
+| **HIV/AIDS**                        | Deaths per 1000                              |
+| **GDP**                             | Per capita (USD)                             |
+| **Population**                      | Total country population                     |
+| **Thinness 10–19 years**            | % prevalence                                 |
+| **Thinness 5–9 years**              | % prevalence                                 |
+| **Income Composition of Resources** | HDI income index (0 to 1)                    |
+| **Schooling**                       | Average years of schooling                   |
+
+5. Click **"🔮 Predict Life Expectancy"** to view results and analysis.
+
+---
+
+## 📁 File Structure
+
+```bash
+├── app.py           # Streamlit app script
+├── a1.sav           # Pre-trained ML model
+└── README.md        # This documentation
+```
+
+---
+
+## ☁️ Deployment
+
+To deploy the app (e.g., Streamlit Cloud):
+
+1. Upload `app.py` and `a1.sav` to the platform.
+
+2. Create `requirements.txt` with:
+
+   ```txt
+   streamlit
+   joblib
+   numpy
+   ```
+
+3. Follow the platform's deployment instructions.
+
+---
+
+## ⚠️ Notes
+
+* `a1.sav` **must** be trained with **19 features**, including **Year**.
+* Input values must be **realistic and within range**.
+* The **health analysis** is general and not personalized:
+
+  * **< 60 years** → 🚨 Suggests need for better healthcare, education, and nutrition.
+  * **60–75 years** → ⚠️ Moderate risks remain.
+  * **> 75 years** → ✅ Indicates a healthy environment.
+
+---
+
+## 🚫 Limitations
+
+* Model accuracy depends on the **training dataset quality**.
+* No cross-validation of input combinations.
+* Model file must exist for the app to run.
+* Health tips are **not personalized**.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+You can:
+
+* Improve input validation
+* Add data visualizations
+* Support multiple model versions or add feature selection
+
+Fork the repo → Create a branch → Submit a pull request!
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.
+
+---
+
+## 📬 Contact
+
+For questions or support, contact the developer or visit the [Streamlit Community](https://discuss.streamlit.io/) forums.
+
+---
+
